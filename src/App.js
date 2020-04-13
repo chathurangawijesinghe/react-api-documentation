@@ -1,26 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+import { Route, Redirect } from 'react-router';
+import { Layout } from './components/Layout';
+import Documentation from './components/Documentation';
+import Intro from './components/Intro';
+import Guide from './components/Guide';
+import Reference from './components/Reference';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import './custom.css'
+
+
+
+export default class App extends Component {
+    static displayName = App.name;
+
+    render() {
+        return (
+            <Layout>
+                <Route exact path='/' render={() => <Redirect to="/developer/documentation" />} />
+                <Route exact path='/developer/documentation' component={Documentation} />
+                <Route exact path='/developer/en/api/dummy1/intro' component={Intro} />
+                <Route exact path='/developer/en/api/dummy1/guide' component={Guide} />
+                <Route exact path='/developer/en/api/dummy1/reference' component={Reference} />
+            </Layout>
+        );
+    }
 }
-
-export default App;
