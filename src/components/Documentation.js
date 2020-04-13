@@ -20,7 +20,10 @@ export default class Documentation extends Component {
             <div>
                 <Container>
                     <Row>
-                        <h2>Videos</h2>
+                        <h2>APIs & Services</h2>
+                    </Row>
+                    <Row>
+                        <h4>Access Information on how to use Forge APIs and Services</h4>
                     </Row>
                     {this.state.apis.map((value, index) => {
                         return <ApiDocumentation key={index} data={value} />
